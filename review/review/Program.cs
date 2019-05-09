@@ -25,12 +25,12 @@ namespace review
             //specified;
             //current value of aVariable is null
 
-            review2 variable;
+            FencePanel variable;
 
             //if you use a new command with the class
             // the new command will phtically create an instance of class
 
-            review2 newvariable = new review2();
+            FencePanel newvariable = new FencePanel();
 
             if(newvariable == null)
             {
