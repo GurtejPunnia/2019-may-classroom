@@ -29,13 +29,37 @@ namespace review
 
             //if you use a new command with the class
             // the new command will phtically create an instance of class
-
+            // when this stattement is excuted , the default coneructer will be callded on your behave
+            //
             FencePanel newvariable = new FencePanel();
+            newvariable.Height = 5.8;
+            newvariable.Width = 8.0;
+            newvariable.Style = "Neighbour friendly";
 
-            if(newvariable == null)
-            {
-                Console.WriteLine("newvariable is empty");
-            }
+            Console.WriteLine( "Height is: " + newvariable.Height.ToString());
+
+            Console.WriteLine("Width is: " + newvariable.Width.ToString());
+
+            Console.WriteLine("Style is: " + newvariable.Style);
+
+            Console.WriteLine("Price is: " + newvariable.Price.ToString() + "\n");
+
+
+            //if you use a new command with the class
+            // the new command will phtically create an instance of class
+            // when this stattement is excuted , the default coneructer will be callded on your behave
+            //
+            FencePanel newvariable1 = new FencePanel(4.0, 6.8, "private", 32.89);
+
+            Console.WriteLine("Height is: " + newvariable1.Height.ToString());
+
+            Console.WriteLine("Width is: " + newvariable1.Width.ToString());
+
+            Console.WriteLine("Style is: " + newvariable1.Style);
+
+            Console.WriteLine("Price is: " + newvariable1.Price.ToString() + "\n");
+
+
             Console.ReadLine();
         }
 
