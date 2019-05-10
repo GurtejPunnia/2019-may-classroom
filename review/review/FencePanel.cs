@@ -112,11 +112,9 @@ namespace review
         }
 
         //behavior (aka method)
-        public double EstimatedNumberOfPanels(double linearLength, double gateWidth, int numberOfGates)
+        public double EstimatedNumberOfPanels(double linearLength)
         {
-            double totalGateWidth = gateWidth * numberOfGates;
-            double FenceWidth = linearLength - totalGateWidth;
-            double numberOfPanels = FenceWidth / Width;
+            double numberOfPanels = linearLength / Width;
             return numberOfPanels;
         }
 
