@@ -60,6 +60,7 @@ namespace review
             Console.WriteLine("Price is: " + newvariable1.Price.ToString() + "\n");
 
             //using instances of classes
+            Console.WriteLine("\n Entering Gate Data \n");
 
             string menItem = "0";
 
