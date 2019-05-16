@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "TextBoxes";
+    // retreive the data from form controls
+    //the form can be accessed via the request object
+    //the request object has serval collections
+    //form are found in the .form collections
+    // a particular control is referenced by it's name in the form collection
+    //syntax request.form["namestring"]
+    //generally all data from control are strings 
+    var leftdata = Request.Form["controlleft"]; //retrieve the control contents
+    var rightdata = Request.Form["controlright"]; //retrieve the control contents
+    var thebutton = Request.Form["formbutton"];  //retrieve the control contents
+    var results = ""; // local var
+}
+
+@section banner{
+    
+    <h1>TextBoxes</h1>
+}
+<form id="theForm" method="post">
+
+    <div class="row">
+        <div class="col-md-offset-4">
+            <label id="concerns" for="Results">Results:</label>
+            <input type="text" id="Results" name="Results" readonly="readonly" value="@results" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="controlleft" id="leftlabel">Left Side</label>
+            <input type="text" id="controlleft" name="controlleft" placeholder="Enter some data" value="@leftdata" />
+            <br/>
+            <input type="Submit" id="formbutton" name="formbutton" class="btn" value="Left" />
+            
+        </div>
+        <div class="col-md-6">
+            <label for="controlright" id="rightlabel">Right Side</label>
+            <input type="text" id="controlright" name="controlright" placeholder="Enter some data" value="@rightdata" />
+            <br />
+            <input type="Submit" id="formbutton" name="formbutton" class="btn" value="Right" />
+
+        </div>
+    </div>
+</form>
+@if(IsPost)
+{ 
+
+<p>you press the @thebutton button</p>
+    if (thebutton.Equals("Left"))
+    {
+        results = leftdata;
+    }
+    else
+    {
+        results = rightdata;
+
+    }
+}
