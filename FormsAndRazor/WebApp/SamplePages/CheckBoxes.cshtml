@@ -1,9 +1,54 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
     Page.Title = "CheckBoxes";
+
+    var choice = "";
 }
 
 @section banner{
     <h1>CheckBoxes</h1>
 }
+@if (IsPost)
+{
+    choice = Request.Form["CheckBoxGroup"];
+    if (string.IsNullOrEmpty(choice))
+    {
+        <p><span style="color:firebrick">Make a selection from the platform choices</span></p>
+        choice = "";
+    }
+    else
+    {
+        <p>
+            I see you like to use the follwing platfroms:
+            <ul>
+                @foreach(var platform in choice.Split(','))
+                {
+                    <li>@platform</li>
+                }
+            </ul>
+        </p>
 
+    }
+}
+
+<form id="theform" method="post">
+    <div class="row">
+        <div class="col-sm-offset-1">
+            <label id="CheckBoxLabel" for="CheckBoxGroup">
+                select your favorite gaming platform
+            </label>
+            <input type="checkbox" id="CheckBoxGroup" name="CheckBoxGroup" value="PS4" @(Array.IndexOf(choice.Split(','), "PS4") >= 0 ? "Checked" : "") />PS4 <br />
+            <input type="checkbox" id="CheckBoxGroup" name="CheckBoxGroup" value="Phone" @(Array.IndexOf(choice.Split(','), "Phone") >= 0 ? "Checked" : "") />Phone <br />
+            <input type="checkbox" id="CheckBoxGroup" name="CheckBoxGroup" value="DS" @(Array.IndexOf(choice.Split(','), "DS") >= 0 ? "Checked" : "") />DS <br />
+            <input type="checkbox" id="CheckBoxGroup" name="CheckBoxGroup" value="WII" @(Array.IndexOf(choice.Split(','), "WII") >= 0 ? "Checked" : "") />WII <br />
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-sm-offset-1">
+
+        <input type="submit" class="btn btn-primary" id="formButton" name="formButton" value="Submit" />
+    </div>
+
+</div>
