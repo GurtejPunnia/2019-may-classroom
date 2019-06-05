@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="author" content="Gurtej Punnia" />
+    <meta name="description" content="layout page for Exercises" />
+    <title>@Page.Title</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div class="container-fluid">
+        @RenderPage("~/_Menu.cshtml")
+        <div class="jumbotron">
+            @RenderSection("banner", required: true)
+        </div>
+        @RenderBody()
+        <hr style="border:5px solid black"> 
+        @RenderSection("footer", required: false)
+        <br/>
+        &copy; Nait CPSC1517 Exercises , @DateTime.Today.ToShortDateString()
+    </div>
+</body>
+</html>
